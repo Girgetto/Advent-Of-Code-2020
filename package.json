@@ -1,0 +1,28 @@
+{
+  "name": "adventcode",
+  "version": "1.0.0",
+  "description": "2020 advent code solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Girgetto/Advent-Of-Code-2020.git"
+  },
+  "keywords": [
+    "advent",
+    "code",
+    "solutions",
+    "2020"
+  ],
+  "author": "Giorgio Grassini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Girgetto/Advent-Of-Code-2020/issues"
+  },
+  "homepage": "https://github.com/Girgetto/Advent-Of-Code-2020#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
