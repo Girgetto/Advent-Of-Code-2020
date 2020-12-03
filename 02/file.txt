@@ -1,4 +1,4 @@
-const data = `3-4 j: tjjj
+3-4 j: tjjj
 7-10 h: nhhhhhgghphhh
 7-13 j: tpscbbstbdjsjbtcpj
 4-13 l: ckllmqzlvcsxpplqg
@@ -997,32 +997,4 @@ const data = `3-4 j: tjjj
 8-9 n: rnsnvlrqdq
 4-7 f: ffwnzdf
 15-18 x: ngxxvqwxzlhxwpxxxz
-13-15 w: nwwwwwqwwwwwtww`;
-
-const clean = data.split("\n").map((el) => {
-  let inf = el.split(" ");
-  return {
-    numbers: inf[0].split("-"),
-    letter: inf[1].replace(":", ""),
-    pwd: inf[2],
-  };
-});
-
-const answerFirstPart = clean.filter((obj) => {
-  let regex = new RegExp(`[^${obj.letter}]`, "g");
-
-  return (
-    obj.pwd.replace(regex, "").length >= obj.numbers[0] &&
-    obj.pwd.replace(regex, "").length <= obj.numbers[1]
-  );
-});
-
-console.log(answerFirstPart.length);
-
-const answerSecondPart = clean.filter(
-  (obj) =>
-    (obj.pwd[obj.numbers[0] - 1] === obj.letter) !==
-    (obj.pwd[obj.numbers[1] - 1] === obj.letter)
-);
-
-console.log(answerSecondPart.length);
+13-15 w: nwwwwwqwwwwwtww
