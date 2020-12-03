@@ -1,15 +1,17 @@
 const createMap = (data) => data.map((tree) => tree.repeat(data.length));
 
+const isTree = (trees, y, x) => trees[y][x] === "#";
+
 const firstPart = (data) => {
   let treeCounter = 0;
-  let y = 3;
+  let x = 3;
 
   const trees = createMap(data);
 
-  for (x = 1; x < trees.length; x++) {
-    if (trees[x][y] === "#") treeCounter++;
-    y += 3;
-    if (y >= trees[0].length) y %= trees[0].length;
+  for (y = 1; y < trees.length; y++) {
+    if (isTree(trees, y, x)) treeCounter++;
+    x += 3;
+    if (x >= trees[0].length) x %= trees[0].length;
   }
 
   return treeCounter;
@@ -24,13 +26,13 @@ const secondPart = (data) => {
   let dx = 1;
 
   for (j = 0; j < right.length; j++) {
-    y = right[j] % trees[0].length;
+    x = right[j] % trees[0].length;
     treeCounter = 0;
 
-    for (x = down[j]; x < trees.length; x += down[j]) {
-      if (trees[x][y] === "#") treeCounter++;
-      y += right[j];
-      if (y >= trees[0].length) y %= trees[0].length;
+    for (y = down[j]; y < trees.length; y += down[j]) {
+      if (isTree(trees, y, x)) treeCounter++;
+      x += right[j];
+      if (x >= trees[0].length) x %= trees[0].length;
     }
     counters.push(treeCounter);
   }
