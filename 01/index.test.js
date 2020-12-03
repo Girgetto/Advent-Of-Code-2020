@@ -14,7 +14,7 @@ describe("First Part", () => {
     expect(firstPart(test)).toBe(2019);
   });
 
-  test("should return 2019", () => {
+  test("should return 514579", () => {
     let test = [1721, 979, 366, 299, 675, 1456];
 
     expect(firstPart(test)).toBe(514579);

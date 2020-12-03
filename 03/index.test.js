@@ -46,7 +46,7 @@ describe("Second Part", () => {
     expect(secondPart(test1)).toBe(336);
   });
 
-  test("should return 336", () => {
+  test("should return 0", () => {
     let test = [".", "#"]
     expect(secondPart(test)).toBe(0);
   });
