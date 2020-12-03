@@ -7,7 +7,7 @@ const { firstPart, secondPart } = require("./index");
 
 const data = fs.readFileSync(filePath, { encoding: "utf-8" }).split("\n");
 
-let test1 = [
+let sample = [
   "..##.......",
   "#...#...#..",
   ".#....#..#.",
@@ -23,17 +23,17 @@ let test1 = [
 
 describe("First Part", () => {
   test("should return 7", () => {
-    expect(firstPart(test1)).toBe(7);
+    expect(firstPart(sample)).toBe(7);
   });
 
   test("should return 1", () => {
-    let test = [".", "#", ".", ".", "."];
-    expect(firstPart(test)).toBe(1);
+    let sample = [".", "#", ".", ".", "."];
+    expect(firstPart(sample)).toBe(1);
   });
 
   test("should return 0", () => {
-    let test = ["...", ".#.", "..#", "..."];
-    expect(firstPart(test)).toBe(0);
+    let sample = ["...", ".#.", "..#", "..."];
+    expect(firstPart(sample)).toBe(0);
   });
 
   test("solution", () => {
@@ -43,12 +43,12 @@ describe("First Part", () => {
 
 describe("Second Part", () => {
   test("should return 336", () => {
-    expect(secondPart(test1)).toBe(336);
+    expect(secondPart(sample)).toBe(336);
   });
 
-  test("should return 336", () => {
-    let test = [".", "#"]
-    expect(secondPart(test)).toBe(0);
+  test("should return 0", () => {
+    let sample = [".", "#"]
+    expect(secondPart(sample)).toBe(0);
   });
 
   test("solution", () => {
