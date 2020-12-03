@@ -4,7 +4,8 @@
   "description": "2020 advent code solutions",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
