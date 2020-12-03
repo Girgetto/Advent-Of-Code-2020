@@ -3,7 +3,7 @@
 const fs = require("fs"),
   path = require("path"),
   filePath = path.join(__dirname, "file.txt");
-const { firstPart, secondPart } = require("./01");
+const { firstPart, secondPart } = require("./index");
 
 const data = fs.readFileSync(filePath, { encoding: "utf-8" }).split("\n");
 
@@ -12,6 +12,12 @@ describe("First Part", () => {
     let test = [2019, 1];
 
     expect(firstPart(test)).toBe(2019);
+  });
+
+  test("should return 2019", () => {
+    let test = [1721, 979, 366, 299, 675, 1456];
+
+    expect(firstPart(test)).toBe(514579);
   });
 
   test("solution", () => {
