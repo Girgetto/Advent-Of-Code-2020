@@ -25,7 +25,7 @@ const createArray = (data) => {
       str += data[i];
       array.push(str);
     } else {
-      str += data[i];
+      str += data[i] + " ";
     }
   }
   return array;
@@ -42,8 +42,11 @@ const firstPart = (data) => {
 
 const secondPart = (data) => {
   const passportsFiltered = firstPart(data);
-  passportsFiltered.filter((el) => console.log(el));
-  return false;
+  return passportsFiltered.filter((el) => {
+    el.split(" ").map((element) => {
+      conditions[element.split(":")[0]];
+    });
+  });
 };
 
 module.exports = {
