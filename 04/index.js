@@ -43,13 +43,13 @@ const firstPart = (data) => {
 const mapConditions = (element) => {
   let [property, value] = element.split(":");
   if (property === "cid") return true;
-  if (value.includes("in") && property === 'hgt') {
+  if (value.includes("in") && property === "hgt") {
     return (
       conditions[property].in.max >= value.replace("in", "") &&
       value.replace("in", "") >= conditions[property].in.min
     );
   }
-  if (value.includes("cm") && property === 'hgt') {
+  if (value.includes("cm") && property === "hgt") {
     return (
       conditions[property].cm.max >= value.replace("cm", "") &&
       value.replace("cm", "") >= conditions[property].cm.min

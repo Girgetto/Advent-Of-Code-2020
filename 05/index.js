@@ -48,7 +48,7 @@ const firstPart = (data) => {
 };
 
 function findNumber(a) {
-  var missing = 0
+  var missing = 0;
 
   for (var i = 1; i <= a.length; i++) {
     if (a.indexOf(i) == -1) {
