@@ -60,7 +60,7 @@ iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719`.split(
   "\n"
 );
 
-describe("First Part", () => {
+describe("Second Part", () => {
   test("should return 0", () => {
     expect(secondPart(invalid).length).toBe(0);
   });

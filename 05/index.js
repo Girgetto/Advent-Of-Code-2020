@@ -29,14 +29,16 @@ const firstPart = (data) => {
         .slice(0, 7)
         .reduce((_, letter, i) => {
           rangeRow = { ...rangeRow, ...conditions[letter]() };
-          return i === 6 && letter === "L" ? rangeRow.max : rangeRow.min;
+          return i === ticket.split("").slice(0, 7).length && letter === "L"
+            ? rangeRow.max
+            : rangeRow.min;
         }, 0),
       column: ticket
         .split("")
         .slice(7, 10)
         .reduce((_, letter, i) => {
           rangeColumns = { ...rangeColumns, ...conditions[letter]() };
-          return i === 2 && letter === "R"
+          return i === ticket.split("").slice(7, 10) && letter === "R"
             ? rangeColumns.max
             : rangeColumns.min;
         }, 0),
@@ -47,20 +49,18 @@ const firstPart = (data) => {
   });
 };
 
-function findNumber(a) {
+function findMissingNumber(ticketsArray) {
   var missing = 0;
 
-  for (var i = 1; i <= a.length; i++) {
-    if (a.indexOf(i) == -1) {
-      if (i > 88) {
-        missing = i;
-      }
+  for (var i = 0; i <= ticketsArray.length; i++) {
+    if (ticketsArray.indexOf(i) == -1) {
+      missing = i;
     }
   }
   return missing;
 }
 
-const secondPart = (data) => findNumber(firstPart(data));
+const secondPart = (data) => findMissingNumber(firstPart(data));
 
 module.exports = {
   firstPart,
