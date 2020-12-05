@@ -40,7 +40,7 @@ Second Part: `9406609920`
 
 # Day 4
 
-[code](https://github.com/Girgetto/Advent-Of-Code-2020/blob/main/03/index.js)
+[code](https://github.com/Girgetto/Advent-Of-Code-2020/blob/main/04/index.js)
 
 <details>
 <summary>Solution</summary>
