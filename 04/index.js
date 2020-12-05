@@ -9,7 +9,7 @@ const conditions = {
   },
   hcl: new RegExp(/^(#[a-z0-9]{6})?/, "g"),
   ecl: new RegExp(/(amb|blu|brn|gry|grn|hzl|oth)/, "g"),
-  pid: new RegExp(/^[0-9]+$/, "g"),
+  pid: new RegExp(/^[0-9]{9}$/, "g"),
 };
 
 const createArray = (data) => {
@@ -41,15 +41,15 @@ const firstPart = (data) => {
 };
 
 const mapConditions = (element) => {
-  let [property, value] = element.trim().split(":");
+  let [property, value] = element.split(":");
   if (property === "cid") return true;
-  if (value.includes("in")) {
+  if (value.includes("in") && property === 'hgt') {
     return (
       conditions[property].in.max >= value.replace("in", "") &&
       value.replace("in", "") >= conditions[property].in.min
     );
   }
-  if (value.includes("cm") && conditions[property].cm) {
+  if (value.includes("cm") && property === 'hgt') {
     return (
       conditions[property].cm.max >= value.replace("cm", "") &&
       value.replace("cm", "") >= conditions[property].cm.min

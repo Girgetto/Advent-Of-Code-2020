@@ -70,6 +70,6 @@ describe("First Part", () => {
   });
 
   test("solution", () => {
-    expect(secondPart(data).length).toBe(158);
+    expect(secondPart(data).length).toBe(156);
   });
 });
