@@ -37,3 +37,15 @@ First part: `244`
 Second Part: `9406609920`
 
 </details>
+
+# Day 4
+
+[code](https://github.com/Girgetto/Advent-Of-Code-2020/blob/main/03/index.js)
+
+<details>
+<summary>Solution</summary>
+
+First part: `230`
+Second Part: `156`
+
+</details>
