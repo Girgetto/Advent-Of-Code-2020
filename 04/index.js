@@ -1,15 +1,16 @@
 const fields = ["ecl", "pid", "eyr", "hcl", "byr", "iyr", "hgt"];
 const conditions = {
-  byr: { min: 1920, max: 2002 },
-  iyr: { min: 2010, max: 2020 },
-  eyr: { min: 2020, max: 2030 },
-  hgt: {
-    cm: { min: 150, max: 193 },
-    in: { min: 59, max: 76 },
-  },
-  hcl: new RegExp(/^(#[a-z0-9]{6})?/, "g"),
-  ecl: new RegExp(/(amb|blu|brn|gry|grn|hzl|oth)/, "g"),
-  pid: new RegExp(/^[0-9]{9}$/, "g"),
+  byr: (value) => 2002 >= value && value >= 1920,
+  iyr: (value) => 2020 >= value && value >= 2010,
+  eyr: (value) => 2030 >= value && value >= 2020,
+  hgt: (value) =>
+    value.includes("in")
+      ? 76 >= value.replace("in", "") && value.replace("in", "") >= 59
+      : 193 >= value.replace("cm", "") && value.replace("cm", "") >= 150,
+  hcl: (value) => new RegExp(/^#[a-z0-9]{6}?/, "g").test(value),
+  ecl: (value) => new RegExp(/(amb|blu|brn|gry|grn|hzl|oth)/, "g").test(value),
+  pid: (value) => new RegExp(/^[0-9]{9}$/, "g").test(value),
+  cid: () => true,
 };
 
 const createArray = (data) => {
@@ -42,24 +43,7 @@ const firstPart = (data) => {
 
 const mapConditions = (element) => {
   let [property, value] = element.split(":");
-  if (property === "cid") return true;
-  if (value.includes("in") && property === 'hgt') {
-    return (
-      conditions[property].in.max >= value.replace("in", "") &&
-      value.replace("in", "") >= conditions[property].in.min
-    );
-  }
-  if (value.includes("cm") && property === 'hgt') {
-    return (
-      conditions[property].cm.max >= value.replace("cm", "") &&
-      value.replace("cm", "") >= conditions[property].cm.min
-    );
-  }
-
-  return conditions[property].min
-    ? conditions[property].max >= value && value >= conditions[property].min
-    : value.match(conditions[property]) !== null &&
-        value.match(conditions[property])[0] !== "";
+  return conditions[property](value);
 };
 
 const secondPart = (data) => {

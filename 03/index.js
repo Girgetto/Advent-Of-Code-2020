@@ -23,7 +23,6 @@ const secondPart = (data) => {
   let down = [1, 1, 1, 1, 2];
   const trees = createMap(data);
   let counters = [];
-  let dx = 1;
 
   for (j = 0; j < right.length; j++) {
     x = right[j] % trees[0].length;

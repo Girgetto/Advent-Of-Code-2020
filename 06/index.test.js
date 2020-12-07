@@ -7,20 +7,38 @@ const { firstPart, secondPart } = require("./index");
 
 const data = fs.readFileSync(filePath, { encoding: "utf-8" }).split("\n");
 
-describe("First Part", () => {
-  test("should return 357", () => {
-    let test = "FBFBBFFRLR".split("\n");
+let sample = `abc
 
-    expect(Math.max(...firstPart(test))).toBe(357);
+a
+b
+c
+
+ab
+ac
+
+a
+a
+a
+a
+
+b`.split("\n");
+
+describe("First Part", () => {
+  test("should return 11", () => {
+    expect(firstPart(sample)).toBe(11);
   });
 
   test("solution", () => {
-    expect(Math.max(...firstPart(data))).toBe(989);
+    expect(firstPart(data)).toBe(6530);
   });
 });
 
 describe("Second Part", () => {
+  test("should return 6", () => {
+    expect(secondPart(sample)).toBe(6);
+  });
+
   test("solution", () => {
-    expect(secondPart(data)).toBe(548);
+    expect(secondPart(data)).toBe(3323);
   });
 });
