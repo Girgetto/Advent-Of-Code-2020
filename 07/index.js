@@ -33,6 +33,9 @@ const firstPart = (data) => {
   return relatedCounter.counter;
 };
 
+const secondPart = () => {};
+
 module.exports = {
   firstPart,
+  secondPart,
 };
