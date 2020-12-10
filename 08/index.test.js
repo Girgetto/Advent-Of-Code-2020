@@ -19,16 +19,16 @@ acc +6`.split("\n");
 
 describe("First Part", () => {
   test("should return 5", () => {
-    expect(firstPart(sample)).toBe(5);
+    expect(firstPart(sample).accumulator).toBe(5);
   });
 
   test("solution", () => {
-    expect(firstPart(data)).toBe(1528);
+    expect(firstPart(data).accumulator).toBe(1528);
   });
 });
 
 describe("Second Part", () => {
-  test.skip("solution", () => {
-    expect(secondPart(data)).toBe(548);
+  test("solution", () => {
+    expect(secondPart(data)).toBe(640);
   });
 });
