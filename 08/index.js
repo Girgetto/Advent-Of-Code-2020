@@ -73,7 +73,6 @@ const secondPart = (instructions) => {
       units,
     ] = /(acc|jmp|nop)\s(\+|-)(\d*)/.exec(instructions[i]);
 
-    // Skip modifications for acc operations
     if (originalOperation === "acc") continue;
 
     if (["nop", "jmp"].includes(originalOperation)) {
