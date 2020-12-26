@@ -47,7 +47,7 @@ describe("Second Part", () => {
   });
 
   test("should return 0", () => {
-    let sample = [".", "#"]
+    let sample = [".", "#"];
     expect(secondPart(sample)).toBe(0);
   });
 
