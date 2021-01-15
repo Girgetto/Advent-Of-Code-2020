@@ -38,4 +38,3 @@ const secondPart = () => {};
 module.exports = {
   firstPart,
   secondPart,
-};
